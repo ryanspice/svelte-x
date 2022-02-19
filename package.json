@@ -1,0 +1,55 @@
+{
+  "name": "Svelte-X-Bar",
+  "short_name": "SXBar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "module": "./src/index.js",
+  "author": "Ryan Spice-Finnie",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack",
+    "prebuild": "yarn node pre.js",
+    "build": "yarn clean:dist && yarn copy && yarn webpack",
+    "build:legacy": "yarn clean:dist && webpack --env.legacy",
+    "clean:dist": "yarn rimraf dist",
+    "clean:lib": "yarn rimraf lib",
+    "clean:install": "yarn rimraf node_modules && yarn install",
+    "serve": "yarn webpack serve",
+    "serve:local": "yarn http-server ./dist --host=0.0.0.0 --port=4200",
+    "local": "./node_modules/webpack/lib/webpack.js server --host 0.0.0.0 --port 4200",
+    "profile": "webpack --profile --json > stats.json && webpack-stats-graph",
+    "library": "yarn clean:lib && node ./node_modules/ecmascript-toolkit/config/script.minify.js ./package.json",
+    "copys": "yarn copyfiles -u 1 -a ./assets/images/*.* out ./dist/assets/",
+    "copy": "yarn copyfiles -u 1 -a ./assets/*.* out ./dist/assets/"
+  },
+  "resolutions": {
+    "@babel/runtime": "^7.12.5"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@smui/touch-target": "^4.0.0",
+    "smui": "latest",
+    "@webpack-cli/serve": "^1.3.1",
+    "css-loader": "^3.4.0",
+    "css-vars": "^2.2.0",
+    "exports-loader": "^1.1.0",
+    "imports-loader": "^1.2.0",
+    "material-scss-vars": "https://gist.github.com/72312991e788e8687a9275c8a64e3460.git",
+    "paralleljs": "^1.1.0",
+    "raw-loader": "^4.0.1",
+    "svelte": "^3.29.4",
+    "svelte-content-loader": "^1.1.3",
+    "svelte-loader": "https://github.com/Smittyvb/svelte-loader#update-virtual-modules",
+    "svelte-material-ui": "https://github.com/ryanspice/svelte-material-ui",
+    "svelte-preprocess": "^4.5.2"
+  },
+  "dependencies": {
+    "date-fns": "^2.16.1",
+    "libphonenumber-js": "^1.8.1",
+    "timeUtils": "^2.0.0",
+    "ecmascript-toolkit": "https://github.com/ryanspice/ecmascript-toolkit#upgrade"
+  },
+  "_moduleAliases": {
+    "@": "./src/app"
+  }
+}

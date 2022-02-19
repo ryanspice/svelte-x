@@ -1,0 +1,97 @@
+https://www.digitalprimates.net/blog/things-you-should-know-when-working-with-svelte-components/
+
+nowish:
+
+	create a THEME store for updating theme values only,
+		include day and night
+		hook up remaining UI
+
+	ensure UI styles match
+
+
+  make app empty
+  day and night mode on load
+      - events must trigger when graph is done loading to override colours
+
+  settings
+    fix size
+    add package info in about
+    add theme
+    add font?
+    
+
+
+next:
+
+    multiple tabs / graphs
+        - render multiple charts
+        - tab management
+    re-render properly
+    fab + details
+    + button
+    smooth zooming
+    fix highlights
+    mobile settings button
+
+later:
+
+  use stats graph to export current app
+
+  look into native export functionality
+
+    const render = shell.exec(`dot -Tsvg -o ${svgFile} ${dotFile}`);
+    if (render.code !== 0) {
+      error('Render failed');
+      process.exit(1);
+    }
+
+    const svg = shell.cat(svgFile);
+    const svgDatauri = new DataURI();
+    svgDatauri.format('.svg', svg);
+    const htmlFile = path.join(outputDirectory, '/interactive.html');
+    ShellString(interactiveHtml(svgDatauri.content)).to(htmlFile);
+
+previous:
+
+4/11
+
+	refactor header and buttons
+
+
+<4/11
+
+  STATE MACHINE
+  refactor / consolidate theme logic
+    change UI elements to use css vars
+    print preview force white theme
+    hook theme everywhere
+
+
+1/29
+  template confirmation dialog ✔
+  SCSS structure and stuff  ✔
+
+
+1/28
+    add divider ✔
+
+    handle drawer widths with classes ✔
+    adjust z-index && pointer events ✔
+    garbage button poorly done ✔
+    darktheme in state ✔
+
+1/27
+    hook up hovering fab with theme ✔
+    setup model for editing fields ✔
+    setup flexbox for editing fields ✔
+    adding white and dark theme ✔
+    hook theme up with a fab ✔
+
+1/<20
+    global loading bar based off material ✔
+    make the loading bar reflect loading at the start of the application ✔
+    fix code view ✔
+    color dropdown behind code view ✔
+    fix z-index to be reasonable ✔
+    line numbers ✔
+    copy to clipboard ✔
